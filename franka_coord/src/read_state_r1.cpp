@@ -3,6 +3,8 @@
 #include "std_msgs/String.h"
 #include <sensor_msgs/JointState.h>
 #include <time.h>
+#include <franka/robot.h>
+#include <franka/robot_state.h>
 
 #include <sstream>
 #include <algorithm>
