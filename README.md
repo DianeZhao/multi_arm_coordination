@@ -9,6 +9,39 @@ Multiple robot arms work in a shared workspace. A target is assigned to each rob
 
 
 ## Instruction
+0.1 create a workspace
+```
+$ mkdir -p ~/mutl_arm_coordination_ws/src
+$ cd ~/mutl_arm_coordination_ws/src
+```
+0.2 git clone this package
+```
+$ git clone git@github.com:DianeZhao/multi_arm_coordination.git
+```
+
+### 0. Required Dependencies
+Franka Emika
+https://frankaemika.github.io/docs/installation_linux.html
+```
+$ sudo apt install ros-noetic-libfranka ros-noetic-franka-ros
+```
+panda_movit_config (can be built from source)
+```
+$ git clone git@github.com:ros-planning/panda_moveit_config.git
+```
+
+then build packages according to the Franka Emika instructions  
+```
+catkin build -DFranka_DIR=/path/to/usr/lib/cmake/Franka -DCMAKE_BUILD_TYPE=Release
+```
+<!-- ```
+catkin build -DFranka_DIR=/opt/ros/noetic/lib/x86_64-linux-gnu/cmake/Franka -DCMAKE_BUILD_TYPE=Release
+```
+```
+One method to get the path: 
+```
+sudo find / -name Franka
+``` -->
 ### 1. Run the program in simulation
 
 Open up four terminals and run the following commands.
