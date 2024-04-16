@@ -14,9 +14,12 @@ find_package(catkin REQUIRED COMPONENTS
   moveit_core
   moveit_ros_planning_interface
   Franka REQUIRED
-  Eigen3 REQUIRED
-
+  #Eigen3 REQUIRED
 )
+find_package(
+  Eigen3 REQUIRED
+)
+
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -161,7 +164,8 @@ include_directories(
 # )
 
 add_library(motion_generation src/motion_generation.cpp)
-
+# Link your library against the Franka library
+target_link_libraries(motion_generation Franka::Franka)
 
 set(EXECUTABLES 
 control_offline
@@ -188,7 +192,6 @@ foreach(executable ${EXECUTABLES})
   )
   set_target_properties(${PROJECT_NAME}_${executable} PROPERTIES OUTPUT_NAME ${executable})
   target_link_libraries(${PROJECT_NAME}_${executable} PUBLIC
-    
     ${Franka_LIBRARIES}
     ${catkin_LIBRARIES}
     motion_generation    
