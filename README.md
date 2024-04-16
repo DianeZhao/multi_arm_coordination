@@ -55,7 +55,7 @@ $ roslaunch franka_coord give_goals.launch
 ```
 1.2 Online replanning
 ```
-$ roslaunch franka_coord coord_online.launch
+$ roslaunch franka_coord coord_online_simu.launch
 $ rosrun franka_coord coord_online_all
 $ roslaunch franka_coord control_online.launch
 $ roslaunch franka_coord give_goals.launch
